@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router'
+import { AuthProvider } from './store/AuthProvider'
+import { PrivateRoute } from './routes/PrivateRoute'
+import { Book } from './pages/Book'
+import { Login } from './pages/Login'
+import { BookDetails } from './pages/BookDetails'
+import { AdminPage } from './pages/AdminPage'
+import { Header } from './components/Header'
+import './styles/global.scss'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FunctionComponent = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <AuthProvider>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Book />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/book/:id" element={<BookDetails />} />
+          <Route
+            path="/admin"
+            element={
+              <PrivateRoute>
+                <AdminPage />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 

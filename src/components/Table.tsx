@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { ITableProps } from '../interfaces/Components'
 import '../styles/components/Table.scss'
-import { useNavigate } from 'react-router'
 
 export const Table: React.FunctionComponent<ITableProps> = ({
   data,
   columns,
-  pageSize = 10
+  pageSize = 10,
+  handleBookClik
 }) => {
-  const navigate = useNavigate()
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(data.length / pageSize)
 
@@ -39,7 +38,7 @@ export const Table: React.FunctionComponent<ITableProps> = ({
                 <td
                   key={colIndex}
                   data-label={col.header}
-                  onClick={() => navigate(`/book/${row.id}`)}
+                  onClick={() => handleBookClik(row)}
                 >
                   {col.render ? col.render(row) : row[col.accessor || '']}
                 </td>

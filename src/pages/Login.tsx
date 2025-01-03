@@ -18,9 +18,14 @@ export const Login: React.FunctionComponent = () => {
     }
   }
 
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+    handleLogin()
+  }
+
   return (
     <div className="login-page">
-      <div className="login-card">
+      <form className="login-card" onSubmit={handleSubmit}>
         <h1>Login Admin</h1>
         <input
           type="text"
@@ -34,8 +39,8 @@ export const Login: React.FunctionComponent = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
-      </div>
+        <button type="submit">Login</button>
+      </form>
     </div>
   )
 }

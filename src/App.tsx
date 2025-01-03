@@ -3,9 +3,10 @@ import { AuthProvider } from './store/AuthProvider'
 import { PrivateRoute } from './routes/PrivateRoute'
 import { Book } from './pages/Book'
 import { Login } from './pages/Login'
-import { BookDetails } from './pages/BookDetails'
 import { AdminPage } from './pages/AdminPage'
+import { BookEdit } from './pages/BookEdit'
 import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 import './styles/global.scss'
 
 const App: React.FunctionComponent = () => {
@@ -16,7 +17,14 @@ const App: React.FunctionComponent = () => {
         <Routes>
           <Route path="/" element={<Book />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/book/:id" element={<BookDetails />} />
+          <Route
+            path="/book/:id"
+            element={
+              <PrivateRoute>
+                <BookEdit />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/admin"
             element={
@@ -26,6 +34,7 @@ const App: React.FunctionComponent = () => {
             }
           />
         </Routes>
+        <Footer />
       </AuthProvider>
     </BrowserRouter>
   )

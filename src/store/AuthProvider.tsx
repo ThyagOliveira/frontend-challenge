@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react'
-import { AuthContext } from './AuthContext'
 import { useNavigate } from 'react-router'
+import { AuthContext } from './AuthContext'
 import { login } from '../services/api'
 
 export const AuthProvider: React.FunctionComponent<{ children: ReactNode }> = ({
@@ -13,11 +13,12 @@ export const AuthProvider: React.FunctionComponent<{ children: ReactNode }> = ({
     try {
       const response = await login(username, password)
 
-      if (response.data.user.is_superuser) {
+      if (response && response.data.user.is_superuser) {
         setIsAdmin(true)
-        localStorage.setItem('isAdmin', response.data.user.is_superuser)
+        response.data.user.password = password
+        localStorage.setItem('isAdmin', JSON.stringify(response.data.user))
         navigate('/admin')
-      } else if (response.status === 200) {
+      } else if (response && response.status === 200) {
         navigate('/')
       }
     } catch (error) {

@@ -9,7 +9,7 @@ export const Header: React.FunctionComponent = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to={`${isAdmin ? '/admin' : '/'}`}>MyBookApp</Link>
+        <Link to={`${isAdmin ? '/admin' : '/'}`}>Good Reads Books</Link>
       </div>
       <nav className="nav">
         <ul>

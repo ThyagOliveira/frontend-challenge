@@ -1,11 +1,9 @@
 @use '../variables.scss' as *;
 
 .footer {
-  background-color: $primary-color;
-  color: white;
-  padding: 2rem 0;
+  color: $dark-color;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: $font-size-sm;
 
   .footer-content {
     display: flex;
@@ -15,32 +13,9 @@
     p {
       margin: 0.5rem 0;
     }
-
-    .footer-links {
-      margin-top: 1rem;
-
-      .footer-link {
-        color: white;
-        text-decoration: none;
-        margin: 0 1rem;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #ffd700; /* Alterar para a cor de hover desejada */
-        }
-      }
-    }
   }
 
   @media (max-width: 767px) {
-    font-size: 0.75rem;
-
-    .footer-links {
-      margin-top: 0.5rem;
-
-      .footer-link {
-        margin: 0 0.5rem;
-      }
-    }
+    font-size: $font-size-xs;
   }
 }

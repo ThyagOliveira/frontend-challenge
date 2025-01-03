@@ -9,7 +9,7 @@
   width: 100vw;
   margin: 0 auto;
 
-  .search-box_btn {
+  &_btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
     }
   }
 
-  .search-box_input {
+  &_input {
     padding: 0.625rem 0.938rem;
     border: 2px solid #ddd;
     border-radius: 4px;

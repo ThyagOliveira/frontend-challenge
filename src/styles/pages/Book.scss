@@ -1,0 +1,11 @@
+.books-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  text-align: center;
+
+  input {
+    margin-right: 0.625rem;
+  }
+}

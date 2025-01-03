@@ -1,0 +1,93 @@
+@use '../variables.scss' as *;
+
+.book-edit {
+  padding: 1.25rem;
+  background-color: #f9f9f9;
+  max-width: 50rem;
+  margin: 1rem auto;
+
+  &_back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: $font-size-bg;
+    color: $dark-color;
+  }
+
+  &_form {
+    margin-top: 1.875rem;
+
+    &--group {
+      margin-bottom: 1.25rem;
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        width: 48.625rem;
+        padding: 0.625rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: $font-size;
+      }
+
+      input[type='number'] {
+        -moz-appearance: textfield;
+      }
+
+      input[type='number']::-webkit-outer-spin-button,
+      input[type='number']::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  &_save-btn {
+    background-color: $secondary-color;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    border: none;
+    width: 50rem;
+    cursor: pointer;
+    font-size: $font-size;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-color-hover;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .book-edit {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .book-edit_back-btn {
+    font-size: $font-size;
+  }
+
+  .book-edit_form {
+    margin-top: 1.875rem;
+
+    &--group {
+      margin-bottom: 1.25rem;
+
+      input {
+        width: 96.458%;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+
+  .book-edit_save-btn {
+    width: 100%;
+    font-size: $font-size-sm;
+  }
+}

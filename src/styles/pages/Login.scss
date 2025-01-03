@@ -1,0 +1,81 @@
+@use '../variables.scss' as *;
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, $primary-color, $primary-color-hover);
+
+  .login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 25rem;
+
+    h1 {
+      font-size: 1.8rem;
+      color: $primary-color;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      width: 93.5%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: $font-size;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      background: $light-color;
+      outline: none;
+      transition: all 0.3s ease;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 8px rgba($primary-color, 0.3);
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-size: $font-size;
+      color: white;
+      background: $primary-color;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        background: $primary-color-hover;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      &:active {
+        background: $primary-color-hover;
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .login-card {
+      padding: 1.5rem;
+    }
+
+    input,
+    button {
+      font-size: $font-size-sm;
+    }
+  }
+}
